@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100;
+}
+
+.input {
+  @apply w-full border rounded px-3 py-2 mt-1;
+}
+.fade-enter {
+  @apply opacity-0 translate-y-2;
+}
+.fade-enter-active {
+  @apply opacity-100 translate-y-0 transition-all duration-300;
+}
