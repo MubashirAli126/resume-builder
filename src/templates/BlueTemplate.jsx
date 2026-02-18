@@ -96,7 +96,12 @@ const BlueTemplate = ({ resumeData }) => {
 
             <div className="blue-template__section-main">
               <h3 className="blue-template__main-title">About me</h3>
-              <p className="blue-template__main-text">{about || "—"}</p>
+              <div
+                className="blue-template__main-text"
+                dangerouslySetInnerHTML={{
+                  __html: about || "<span>—</span>"
+                }}
+              />
             </div>
 
             <div className="blue-template__section-main">
@@ -105,10 +110,10 @@ const BlueTemplate = ({ resumeData }) => {
                 work.map((item, i) => (
                   <div key={i} className="blue-template__main-item">
                     <div className="flex justify-between">
-                      <span className="font-semibold">{item.position}</span>
+                      <span className="font-semibold">{item.jobTitle || item.position}</span>
                       {item.duration && <span className="text-sm text-gray-600">{item.duration}</span>}
                     </div>
-                    {item.company && <span className="text-sm">{item.company}</span>}
+                    <span className="text-sm">{item.companyName || item.company || ""}</span>
                   </div>
                 ))
               ) : (
@@ -122,8 +127,8 @@ const BlueTemplate = ({ resumeData }) => {
                 education.map((item, i) => (
                   <div key={i} className="blue-template__main-item">
                     <div className="flex justify-between">
-                      <span>{item.degree} — {item.institution}</span>
-                      {item.year && <span className="text-sm text-gray-600">{item.year}</span>}
+                      <span>{(item.levelOfEducation || item.degree) || "—"} {(item.institution) ? `— ${item.institution}` : ""}</span>
+                      {(item.passingYear || item.year) && <span className="text-sm text-gray-600">{item.passingYear || item.year}</span>}
                     </div>
                   </div>
                 ))
@@ -142,7 +147,15 @@ const BlueTemplate = ({ resumeData }) => {
             <div className="blue-template__section-main">
               <h3 className="blue-template__main-title">Language</h3>
               <p className="blue-template__main-text">
-                {language.length > 0 ? language.join(", ") : "—"}
+                {language.length > 0
+                  ? language
+                      .map((item) =>
+                        typeof item === "string"
+                          ? item
+                          : [item.language, item.proficiency].filter(Boolean).join(" – ")
+                      )
+                      .join(", ")
+                  : "—"}
               </p>
             </div>
           </div>

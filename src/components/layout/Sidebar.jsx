@@ -19,6 +19,8 @@ const categories = [
   { id: "references", label: "References", icon: Users }
 ];
 
+const BRAND_COLOR = "#00318B";
+
 const Sidebar = () => {
   const activeStep = useResumeStore((s) => s.activeStep);
   const setActiveStep = useResumeStore((s) => s.setActiveStep);
@@ -46,25 +48,28 @@ const Sidebar = () => {
               className={`
                 relative flex flex-col items-center justify-center
                 p-4 rounded-lg transition-all duration-200
-                border
-                ${
-                  isActive
-                    ? "bg-blue-50 border-l-4 border-l-blue-600 border-t border-r border-b border-gray-200"
-                    : "bg-white border-gray-200 hover:bg-gray-50 hover:shadow-sm"
-                }
+                ${isActive ? "bg-gray-50/80" : "hover:bg-gray-50/50"}
               `}
             >
               <Icon
                 size={28}
-                className={isActive ? "text-blue-600" : "text-gray-400"}
+                style={{ color: isActive ? BRAND_COLOR : "#6b7280" }}
+                className="shrink-0"
               />
               <p
                 className={`mt-2 text-sm font-medium text-center leading-tight ${
-                  isActive ? "text-blue-600" : "text-gray-500"
+                  isActive ? "" : "text-gray-500"
                 }`}
+                style={isActive ? { color: BRAND_COLOR } : {}}
               >
                 {category.label}
               </p>
+              {isActive && (
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-0.5 rounded-full"
+                  style={{ backgroundColor: BRAND_COLOR }}
+                />
+              )}
             </button>
           );
         })}

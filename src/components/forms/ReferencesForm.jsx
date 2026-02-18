@@ -1,21 +1,16 @@
 import RepeatableForm from "./RepeatableForm";
 import { useResumeStore } from "../../store/resumeStore";
-import { STEPS } from "../../constants/steps";
+import NextButton from "../ui/NextButton";
 
+/**
+ * Image 8 – Reference section. Layout with Delete below each entry, Add more link.
+ */
 const ReferencesForm = () => {
   const { resumeData, updateSection, setActiveStep } = useResumeStore();
 
   const handleChange = (data) => updateSection("references", data);
 
-  const handleNext = () => {
-    const nextStep = STEPS.findIndex((s) => s.id === "references");
-    setActiveStep("finalPreview"); // move to final preview
-  };
-
-  const handleBack = () => {
-    const currentIndex = STEPS.findIndex((s) => s.id === "references");
-    setActiveStep(STEPS[currentIndex - 1].id);
-  };
+  const handleNext = () => setActiveStep("finalPreview");
 
   const fields = [
     { name: "name", label: "Name" },
@@ -23,28 +18,34 @@ const ReferencesForm = () => {
     { name: "contact", label: "Contact" }
   ];
 
+  const isReferenceEntryComplete = (e) =>
+    e.name?.trim() && e.relation?.trim() && e.contact?.trim();
+
+  const isReferenceEntryFilled = (e) =>
+    e.name?.trim() || e.relation?.trim() || e.contact?.trim();
+
+  const isComplete = (resumeData.references ?? []).some(
+    (r) => r.name?.trim() && r.relation?.trim() && r.contact?.trim()
+  );
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 font-app">
       <RepeatableForm
         sectionName="References"
         data={resumeData.references}
         onChange={handleChange}
         fields={fields}
+        isEntryComplete={isReferenceEntryComplete}
+        isEntryFilled={isReferenceEntryFilled}
       />
 
-      <div className="flex justify-between mt-4">
-        <button
-          className="bg-gray-500 text-white px-4 py-2 rounded"
-          onClick={handleBack}
-        >
-          Back
-        </button>
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded"
+      <div className="flex justify-end pt-2">
+        <NextButton
+          isActive={isComplete}
           onClick={handleNext}
         >
           Finish
-        </button>
+        </NextButton>
       </div>
     </div>
   );

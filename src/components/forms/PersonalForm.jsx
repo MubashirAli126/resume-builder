@@ -3,6 +3,7 @@ import { useResumeStore } from "../../store/resumeStore";
 import { STEPS } from "../../constants/steps";
 import { useState, useRef } from "react";
 import { User } from "lucide-react";
+import NextButton from "../ui/NextButton";
 
 const MAX_FILE_SIZE = 800 * 1024; // 800KB
 const ACCEPTED_TYPES = ["image/jpeg", "image/jpg", "image/gif", "image/png"];
@@ -15,10 +16,19 @@ const PersonalForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
   } = useForm({
     defaultValues: resumeData.personal || {}
   });
+
+  const watched = watch();
+  const isPersonalComplete =
+    watched.fullName?.trim() &&
+    watched.title?.trim() &&
+    watched.email?.trim() &&
+    watched.phone?.trim() &&
+    watched.address?.trim();
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -89,7 +99,8 @@ const PersonalForm = () => {
             />
             <label
               htmlFor="photo-upload"
-              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 cursor-pointer transition-colors"
+              className="inline-flex items-center px-4 py-2 text-white text-sm font-medium rounded-lg cursor-pointer transition-colors hover:opacity-90"
+              style={{ backgroundColor: "#00318B" }}
             >
               Upload your photo
             </label>
@@ -223,14 +234,11 @@ const PersonalForm = () => {
         </div>
       </div>
 
-      {/* Next button */}
+      {/* Next button – Image 1/2: icon instead of → */}
       <div className="flex justify-end pt-2">
-        <button
-          type="submit"
-          className="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg bg-white hover:bg-gray-50 transition-colors"
-        >
-          Next -&gt;
-        </button>
+        <NextButton type="submit" isActive={isPersonalComplete}>
+          Next
+        </NextButton>
       </div>
     </form>
   );

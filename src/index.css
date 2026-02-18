@@ -4,13 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* App sections: Montserrat. Preview template: Inter. */
 body {
   @apply bg-gray-100;
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-app {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-preview {
+  font-family: "Inter", sans-serif;
 }
 
 .input {
-  @apply w-full border border-gray-300 rounded-lg px-3 py-2.5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full border border-gray-300 rounded-lg px-3 py-2.5 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00318B] focus:border-transparent;
+  font-family: "Montserrat", sans-serif;
 }
+
+/* ContentEditable placeholder (About Me) */
+[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+}
+
 .fade-enter {
   @apply opacity-0 translate-y-2;
 }

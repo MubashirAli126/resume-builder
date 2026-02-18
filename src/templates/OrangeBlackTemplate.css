@@ -6,7 +6,7 @@
   --template-black: #0f0f0f;
   --template-gray: #374151;
   --template-gray-light: #f3f4f6;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 11px;
   line-height: 1.4;
 }

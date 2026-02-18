@@ -29,19 +29,19 @@ const MainLayout = () => {
       </header>
 
       {/* Main content */}
-      <div className="grid grid-cols-12 flex-1 overflow-hidden">
+      <div className="grid grid-cols-12 flex-1 overflow-hidden gap-4 p-4">
         {/* Left Sidebar */}
-        <div className="col-span-2 bg-gray-100 border-r border-gray-200 overflow-y-auto">
+        <div className="col-span-2 bg-white border border-gray-300 rounded-lg overflow-y-auto">
           <Sidebar />
         </div>
 
         {/* Center - Form Section */}
-        <div className="col-span-6 bg-white p-6 overflow-y-auto">
+        <div className="col-span-6 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
           <FormPanel />
         </div>
 
         {/* Right - Preview */}
-        <div className="col-span-4 bg-gray-100 p-6 overflow-y-auto">
+        <div className="col-span-4 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
           <PreviewPanel />
         </div>
       </div>

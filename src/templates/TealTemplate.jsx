@@ -69,7 +69,12 @@ const TealTemplate = ({ resumeData }) => {
 
           <div className="teal-template__section">
             <h3 className="teal-template__section-title">About me</h3>
-            <p className="teal-template__text">{about || "—"}</p>
+            <div
+              className="teal-template__text"
+              dangerouslySetInnerHTML={{
+                __html: about || "<span>—</span>"
+              }}
+            />
           </div>
 
           <div className="teal-template__section">
@@ -77,8 +82,8 @@ const TealTemplate = ({ resumeData }) => {
             {work.length > 0 ? (
               work.map((item, i) => (
                 <div key={i} className="teal-template__item">
-                  <span className="font-semibold">{item.position}</span>
-                  {item.company && <span> — {item.company}</span>}
+                  <span className="font-semibold">{item.jobTitle || item.position}</span>
+                  {(item.companyName || item.company) && <span> — {item.companyName || item.company}</span>}
                   {item.duration && <span className="block text-sm text-gray-600">{item.duration}</span>}
                 </div>
               ))
@@ -92,9 +97,9 @@ const TealTemplate = ({ resumeData }) => {
             {education.length > 0 ? (
               education.map((item, i) => (
                 <div key={i} className="teal-template__item">
-                  <span>{item.degree}</span>
+                  <span>{item.levelOfEducation || item.degree}</span>
                   {item.institution && <span> — {item.institution}</span>}
-                  {item.year && <span className="block text-sm text-gray-600">{item.year}</span>}
+                  {(item.passingYear || item.year) && <span className="block text-sm text-gray-600">{item.passingYear || item.year}</span>}
                 </div>
               ))
             ) : (
@@ -112,7 +117,15 @@ const TealTemplate = ({ resumeData }) => {
           <div className="teal-template__section">
             <h3 className="teal-template__section-title">Language</h3>
             <p className="teal-template__text">
-              {language.length > 0 ? language.join(", ") : "—"}
+              {language.length > 0
+                ? language
+                    .map((item) =>
+                      typeof item === "string"
+                        ? item
+                        : [item.language, item.proficiency].filter(Boolean).join(" – ")
+                    )
+                    .join(", ")
+                : "—"}
             </p>
           </div>
 

@@ -42,7 +42,7 @@ const FormPanel = () => {
   };
 
   return (
-    <div className="w-full max-w-3xl">
+    <div className="w-full max-w-3xl font-app">
       <div className="mb-6">
         <h2 className="text-gray-800 font-semibold text-lg">
           {STEP_LABELS[activeStep] || "Personal info"}

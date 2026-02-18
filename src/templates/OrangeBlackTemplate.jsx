@@ -169,7 +169,11 @@ const OrangeBlackTemplate = ({ resumeData }) => {
               </div>
               <h3 className="resume-template__main-title">About me</h3>
               <p className="resume-template__main-text">
-                {about || "—"}
+                {about ? (
+                  <span dangerouslySetInnerHTML={{ __html: about }} />
+                ) : (
+                  "—"
+                )}
               </p>
             </div>
 
@@ -185,8 +189,8 @@ const OrangeBlackTemplate = ({ resumeData }) => {
                   work.map((item, i) => (
                     <div key={i} className="resume-template__main-item resume-template__main-item--row">
                       <div>
-                        <span className="font-semibold">{item.position}</span>
-                        {item.company && <span> — {item.company}</span>}
+                        <span className="font-semibold">{item.jobTitle || item.position}</span>
+                        {(item.companyName || item.company) && <span> — {item.companyName || item.company}</span>}
                       </div>
                       {item.duration && <span className="text-sm text-gray-600 shrink-0">{item.duration}</span>}
                     </div>
@@ -209,10 +213,10 @@ const OrangeBlackTemplate = ({ resumeData }) => {
                   education.map((item, i) => (
                     <div key={i} className="resume-template__main-item resume-template__main-item--row">
                       <div>
-                        <span className="font-semibold">{item.degree}</span>
+                        <span className="font-semibold">{item.levelOfEducation || item.degree}</span>
                         {item.institution && <span> — {item.institution}</span>}
                       </div>
-                      {item.year && <span className="text-sm text-gray-600 shrink-0">{item.year}</span>}
+                      {(item.passingYear || item.year) && <span className="text-sm text-gray-600 shrink-0">{item.passingYear || item.year}</span>}
                     </div>
                   ))
                 ) : (
@@ -252,7 +256,11 @@ const OrangeBlackTemplate = ({ resumeData }) => {
                 {language.length > 0 ? (
                   <div className="flex flex-wrap gap-1">
                     {language.map((item, i) => (
-                      <span key={i} className="resume-template__tag">{item}</span>
+                      <span key={i} className="resume-template__tag">
+                        {typeof item === "string"
+                          ? item
+                          : [item.language, item.proficiency].filter(Boolean).join(" – ")}
+                      </span>
                     ))}
                   </div>
                 ) : (

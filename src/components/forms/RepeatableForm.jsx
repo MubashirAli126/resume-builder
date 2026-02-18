@@ -1,67 +1,80 @@
 import { useState } from "react";
+import DeleteButton from "../ui/DeleteButton";
 
-const RepeatableForm = ({ sectionName, data, onChange, fields }) => {
-  const [entries, setEntries] = useState(data || []);
+/**
+ * Generic repeatable section. Delete below each entry only when entry has data (Image 9).
+ * When isEntryComplete(last) after edit, show next row dynamically (no multiple empty rows).
+ */
+const emptyEntryFromFields = (fields) =>
+  fields.reduce((acc, f) => ({ ...acc, [f.name]: "" }), {});
 
-  const handleAdd = () => {
-    const newEntry = fields.reduce((acc, field) => {
-      acc[field.name] = "";
-      return acc;
-    }, {});
-    const updated = [...entries, newEntry];
-    setEntries(updated);
-    onChange(updated);
-  };
+const RepeatableForm = ({
+  sectionName,
+  data,
+  onChange,
+  fields,
+  isEntryComplete,
+  isEntryFilled
+}) => {
+  const [entries, setEntries] = useState(() => {
+    const d = data ?? [];
+    if (d.length > 0) return d;
+    return [emptyEntryFromFields(fields)];
+  });
 
   const handleRemove = (index) => {
     const updated = entries.filter((_, i) => i !== index);
+    if (updated.length === 0) updated.push(emptyEntryFromFields(fields));
     setEntries(updated);
     onChange(updated);
   };
 
   const handleInputChange = (index, name, value) => {
     const updated = [...entries];
-    updated[index][name] = value;
+    updated[index] = { ...updated[index], [name]: value };
+    if (
+      typeof isEntryComplete === "function" &&
+      index === updated.length - 1 &&
+      isEntryComplete(updated[index])
+    ) {
+      updated.push(emptyEntryFromFields(fields));
+    }
     setEntries(updated);
     onChange(updated);
   };
 
+  const showDelete = (entry) =>
+    typeof isEntryFilled === "function"
+      ? isEntryFilled(entry)
+      : true;
+
   return (
-    <div className="bg-white p-6 rounded shadow space-y-4">
-      <h3 className="font-bold text-lg mb-2">{sectionName}</h3>
+    <div className="space-y-6 font-app">
+      <h3 className="text-lg font-semibold text-gray-800">{sectionName}</h3>
 
       {entries.map((entry, idx) => (
-        <div key={idx} className="border p-4 rounded space-y-2 relative">
-          {fields.map((field) => (
-            <div key={field.name}>
-              <label className="block font-medium">{field.label}</label>
-              <input
-                className="input"
-                value={entry[field.name]}
-                onChange={(e) =>
-                  handleInputChange(idx, field.name, e.target.value)
-                }
-              />
-            </div>
-          ))}
-
-          <button
-            type="button"
-            className="absolute top-2 right-2 text-red-500"
-            onClick={() => handleRemove(idx)}
-          >
-            Remove
-          </button>
+        <div key={idx} className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border border-gray-200 rounded-lg p-4 bg-white">
+            {fields.map((field) => (
+              <div key={field.name}>
+                <label className="block text-sm font-medium text-gray-800 mb-1">
+                  {field.label}
+                </label>
+                <input
+                  className="input"
+                  value={entry[field.name] ?? ""}
+                  onChange={(e) =>
+                    handleInputChange(idx, field.name, e.target.value)
+                  }
+                />
+              </div>
+            ))}
+          </div>
+          {showDelete(entry) && (
+            <DeleteButton onClick={() => handleRemove(idx)} />
+          )}
         </div>
       ))}
-
-      <button
-        type="button"
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={handleAdd}
-      >
-        Add {sectionName}
-      </button>
     </div>
   );
 };

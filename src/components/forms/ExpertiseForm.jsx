@@ -1,11 +1,13 @@
 import { useResumeStore } from "../../store/resumeStore";
 import { STEPS } from "../../constants/steps";
 import { useState } from "react";
+import NextButton from "../ui/NextButton";
+import AddMoreButton from "../ui/AddMoreButton";
+import DeleteButton from "../ui/DeleteButton";
 
 const ExpertiseForm = () => {
   const { resumeData, updateSection, setActiveStep } = useResumeStore();
   const [expertise, setExpertise] = useState(resumeData.expertise || []);
-
   const [input, setInput] = useState("");
 
   const handleAdd = () => {
@@ -28,14 +30,11 @@ const ExpertiseForm = () => {
     setActiveStep(STEPS[currentIndex + 1].id);
   };
 
-  const handleBack = () => {
-    const currentIndex = STEPS.findIndex((s) => s.id === "expertise");
-    setActiveStep(STEPS[currentIndex - 1].id);
-  };
-
   return (
-    <div className="space-y-4">
-      <label className="block font-medium">Areas of Expertise</label>
+    <div className="space-y-4 font-app">
+      <label className="block text-sm font-medium text-gray-800">
+        Areas of Expertise
+      </label>
 
       <div className="flex gap-2 mb-2">
         <input
@@ -44,45 +43,25 @@ const ExpertiseForm = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Add expertise"
         />
-        <button
-          type="button"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={handleAdd}
-        >
-          Add
-        </button>
+        <AddMoreButton onClick={handleAdd} />
       </div>
 
       <div className="flex flex-wrap gap-2">
         {expertise.map((item, idx) => (
-          <span
-            key={idx}
-            className="bg-gray-200 px-2 py-1 rounded flex items-center gap-1"
-          >
-            {item}
-            <button
-              className="text-red-500 font-bold"
-              onClick={() => handleRemove(idx)}
-            >
-              x
-            </button>
-          </span>
+          <div key={idx} className="flex flex-col">
+            <span className="bg-gray-100 border border-gray-200 px-3 py-1.5 rounded text-sm">
+              {item}
+            </span>
+            <DeleteButton onClick={() => handleRemove(idx)} />
+          </div>
         ))}
       </div>
 
-      <div className="flex justify-between mt-4">
-        <button
-          className="bg-gray-500 text-white px-4 py-2 rounded"
-          onClick={handleBack}
-        >
-          Back
-        </button>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+      <div className="flex justify-end pt-2">
+        <NextButton
+          isActive={expertise?.length > 0}
           onClick={handleNext}
-        >
-          Next
-        </button>
+        />
       </div>
     </div>
   );
