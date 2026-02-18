@@ -7,6 +7,16 @@ import ExpertiseForm from "../forms/ExpertiseForm";
 import LanguageForm from "../forms/LanguageForm";
 import ReferencesForm from "../forms/ReferencesForm";
 
+const STEP_LABELS = {
+  personal: "Personal info",
+  about: "About me",
+  education: "Education",
+  language: "Language",
+  work: "Work experience",
+  expertise: "Areas of expertise",
+  references: "References"
+};
+
 const FormPanel = () => {
   const activeStep = useResumeStore((s) => s.activeStep);
 
@@ -27,19 +37,18 @@ const FormPanel = () => {
       case "references":
         return <ReferencesForm />;
       default:
-        return (
-          <div className="p-6 bg-white rounded shadow">
-            Form coming soon...
-          </div>
-        );
+        return <PersonalForm />;
     }
   };
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-4 capitalize">
-        {activeStep.replace(/([A-Z])/g, " $1")}
-      </h2>
+    <div className="w-full max-w-3xl">
+      <div className="mb-6">
+        <h2 className="text-gray-800 font-semibold text-lg">
+          {STEP_LABELS[activeStep] || "Personal info"}
+        </h2>
+        <p className="text-gray-500 text-sm mt-0.5">Fill details here.</p>
+      </div>
       {renderForm()}
     </div>
   );

@@ -13,11 +13,25 @@ const initialData = savedResume
       references: []
     };
 
+const getSavedTemplate = () => {
+  const saved = localStorage.getItem("selectedTemplate");
+  if (saved === "template2") return "blue";
+  if (saved === "template3") return "teal";
+  return saved || "orangeBlack";
+};
+const savedTemplate = getSavedTemplate();
+
 export const useResumeStore = create((set, get) => ({
   activeStep: "personal",
   resumeData: initialData,
+  selectedTemplate: savedTemplate,
 
   setActiveStep: (step) => set({ activeStep: step }),
+
+  setSelectedTemplate: (template) => {
+    localStorage.setItem("selectedTemplate", template);
+    set({ selectedTemplate: template });
+  },
 
   updateSection: (section, data) => {
     set((state) => {

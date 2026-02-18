@@ -1,0 +1,135 @@
+.resume-template-teal {
+  --teal: #0d9488;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.teal-template__container {
+  min-height: 400px;
+  background: white;
+  position: relative;
+}
+
+.teal-template__top {
+  padding: 24px 24px 16px 24px;
+  position: relative;
+}
+
+.teal-template__profile-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.teal-template__photo-wrap {
+  flex-shrink: 0;
+}
+
+.teal-template__photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--teal);
+  background: #f3f4f6;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teal-template__header-info {
+  flex: 1;
+}
+
+.teal-template__name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 4px 0;
+}
+
+.teal-template__title {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.teal-template__accent-bar {
+  background: var(--teal);
+  position: absolute;
+}
+
+.teal-template__accent-bar--top {
+  top: 24px;
+  right: 24px;
+  width: 60px;
+  height: 4px;
+}
+
+.teal-template__accent-bar--right {
+  top: 80px;
+  right: 24px;
+  width: 4px;
+  bottom: 40px;
+}
+
+.teal-template__accent-bar--bottom {
+  bottom: 24px;
+  left: 24px;
+  width: 80px;
+  height: 4px;
+}
+
+.teal-template__content {
+  padding: 0 24px 24px 24px;
+}
+
+.teal-template__section {
+  margin-bottom: 16px;
+}
+
+.teal-template__section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 6px 0;
+}
+
+.teal-template__text {
+  font-size: 11px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.teal-template__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.teal-template__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #374151;
+}
+
+.teal-template__item {
+  margin-bottom: 6px;
+}
+
+.teal-template__social-link {
+  display: block;
+  font-size: 11px;
+  color: #0d9488;
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+
+.teal-template__placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}

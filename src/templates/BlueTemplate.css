@@ -1,0 +1,137 @@
+.resume-template-blue {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.blue-template__container {
+  display: flex;
+  min-height: 400px;
+}
+
+.blue-template__sidebar {
+  width: 35%;
+  background: #1e3a5f;
+  color: white;
+  padding: 24px 20px;
+}
+
+.blue-template__photo-wrap {
+  margin-bottom: 20px;
+}
+
+.blue-template__photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-template__section {
+  margin-bottom: 16px;
+}
+
+.blue-template__sidebar-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.blue-template__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.blue-template__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.blue-template__ref-item {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+}
+
+.blue-template__social-item {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
+}
+
+.blue-template__placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.blue-template__main {
+  width: 65%;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.blue-template__header-curve {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
+  border-radius: 0 0 0 100%;
+}
+
+.blue-template__content {
+  position: relative;
+  padding: 24px 24px 24px 24px;
+  margin-top: 60px;
+}
+
+.blue-template__name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin: 0 0 4px 0;
+}
+
+.blue-template__title {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+.blue-template__section-main {
+  margin-bottom: 16px;
+}
+
+.blue-template__main-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin: 0 0 6px 0;
+}
+
+.blue-template__main-text {
+  font-size: 11px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.blue-template__main-item {
+  margin-bottom: 8px;
+}
+
+.blue-template__placeholder-main {
+  color: #9ca3af;
+  font-style: italic;
+}
