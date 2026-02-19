@@ -139,11 +139,9 @@ const LanguageForm = () => {
         </div>
       ))}
 
-      {entries.length > 0 && isLanguageEntryFilled(entries[0]) && (
-        <div className="flex justify-end">
-          <AddMoreButton onClick={handleAdd} />
-        </div>
-      )}
+      <div className="flex justify-end">
+        <AddMoreButton onClick={handleAdd} />
+      </div>
 
       <div className="flex justify-end pt-2">
         <NextButton isActive={isComplete} onClick={handleNext} />

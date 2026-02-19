@@ -185,11 +185,9 @@ const WorkForm = () => {
         </div>
       ))}
 
-      {entries.length > 0 && isWorkEntryFilled(entries[0]) && (
-        <div className="flex justify-end">
-          <AddMoreButton onClick={handleAdd} />
-        </div>
-      )}
+      <div className="flex justify-end">
+        <AddMoreButton onClick={handleAdd} />
+      </div>
 
       <div className="flex justify-end pt-2">
         <NextButton isActive={isComplete} onClick={handleNext} />

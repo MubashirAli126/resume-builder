@@ -1,9 +1,9 @@
 import { useState } from "react";
+import AddMoreButton from "../ui/AddMoreButton";
 import DeleteButton from "../ui/DeleteButton";
 
 /**
- * Generic repeatable section. Delete below each entry only when entry has data (Image 9).
- * When isEntryComplete(last) after edit, show next row dynamically (no multiple empty rows).
+ * Generic repeatable section. Add More always visible. Delete only when entry has data (red).
  */
 const emptyEntryFromFields = (fields) =>
   fields.reduce((acc, f) => ({ ...acc, [f.name]: "" }), {});
@@ -13,7 +13,6 @@ const RepeatableForm = ({
   data,
   onChange,
   fields,
-  isEntryComplete,
   isEntryFilled
 }) => {
   const [entries, setEntries] = useState(() => {
@@ -21,6 +20,13 @@ const RepeatableForm = ({
     if (d.length > 0) return d;
     return [emptyEntryFromFields(fields)];
   });
+
+  const handleAdd = () => {
+    const newEntry = emptyEntryFromFields(fields);
+    const updated = [...entries, newEntry];
+    setEntries(updated);
+    onChange(updated);
+  };
 
   const handleRemove = (index) => {
     const updated = entries.filter((_, i) => i !== index);
@@ -32,13 +38,6 @@ const RepeatableForm = ({
   const handleInputChange = (index, name, value) => {
     const updated = [...entries];
     updated[index] = { ...updated[index], [name]: value };
-    if (
-      typeof isEntryComplete === "function" &&
-      index === updated.length - 1 &&
-      isEntryComplete(updated[index])
-    ) {
-      updated.push(emptyEntryFromFields(fields));
-    }
     setEntries(updated);
     onChange(updated);
   };
@@ -75,6 +74,10 @@ const RepeatableForm = ({
           )}
         </div>
       ))}
+
+      <div className="flex justify-end">
+        <AddMoreButton onClick={handleAdd} />
+      </div>
     </div>
   );
 };

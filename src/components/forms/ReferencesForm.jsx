@@ -18,9 +18,6 @@ const ReferencesForm = () => {
     { name: "contact", label: "Contact" }
   ];
 
-  const isReferenceEntryComplete = (e) =>
-    e.name?.trim() && e.relation?.trim() && e.contact?.trim();
-
   const isReferenceEntryFilled = (e) =>
     e.name?.trim() || e.relation?.trim() || e.contact?.trim();
 
@@ -35,7 +32,6 @@ const ReferencesForm = () => {
         data={resumeData.references}
         onChange={handleChange}
         fields={fields}
-        isEntryComplete={isReferenceEntryComplete}
         isEntryFilled={isReferenceEntryFilled}
       />
 
