@@ -5,7 +5,6 @@ import MainLayout from "./components/layout/MainLayout";
 function App() {
   const activeStep = useResumeStore((s) => s.activeStep);
 
-  // Show Final Preview Page
   if (activeStep === "finalPreview") return <FinalPreviewPage />;
 
   return <MainLayout />;

@@ -1,10 +1,5 @@
 import { ChevronRight } from "lucide-react";
 
-/**
- * Next button – consistent styling across app.
- * Image 1: Disabled state – bg #E9EAEC, medium grey text, arrow icon.
- * Image 2: Active state – bg #00318B, white text and icon when required details are complete.
- */
 const BRAND_COLOR = "#00318B";
 const DISABLED_BG = "#E9EAEC";
 const DISABLED_TEXT = "#6b7280";

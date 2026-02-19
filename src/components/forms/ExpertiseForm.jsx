@@ -32,7 +32,7 @@ const ExpertiseForm = () => {
 
   return (
     <div className="space-y-4 font-app">
-      <label className="block text-sm font-medium text-gray-800">
+      <label className="block text-sm font-medium" style={{ color: "#14151A" }}>
         Areas of Expertise
       </label>
 

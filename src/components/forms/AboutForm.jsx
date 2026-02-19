@@ -5,10 +5,6 @@ import NextButton from "../ui/NextButton";
 import DeleteButton from "../ui/DeleteButton";
 import { Bold, Italic, Underline, List, ListOrdered } from "lucide-react";
 
-/**
- * Image 3 – About Me section. Layout: card with Write Description,
- * toolbar (Bold, Italic, Underline, Bullet, Numbered), textarea, Delete left, Next right.
- */
 const AboutForm = () => {
   const { resumeData, updateSection, setActiveStep } = useResumeStore();
   const [about, setAbout] = useState(resumeData.about || "");
@@ -50,13 +46,11 @@ const AboutForm = () => {
 
   return (
     <div className="space-y-4 font-app">
-      {/* Main content card – white bg, grey border (Image 3) */}
       <div className="border border-[#D3D3D3] rounded-lg bg-white overflow-hidden">
         <div className="p-4 border-b border-gray-100">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
+          <label className="block text-sm font-medium mb-2" style={{ color: "#14151A" }}>
             Write Description
           </label>
-          {/* Toolbar */}
           <div className="flex items-center gap-1 p-2 bg-gray-50 rounded-lg mb-2">
             <button
               type="button"

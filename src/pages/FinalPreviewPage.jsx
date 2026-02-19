@@ -40,7 +40,7 @@ const FinalPreviewPage = () => {
       <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${iconColor}`}>
         <Icon size={20} className="text-white" />
       </div>
-      <span className="flex-1 text-gray-800 font-medium text-sm">{label}</span>
+      <span className="flex-1 font-medium text-sm" style={{ color: "#14151A" }}>{label}</span>
       <button
         onClick={onClick}
         className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"
@@ -55,7 +55,7 @@ const FinalPreviewPage = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shrink-0">
-        <h1 className="text-xl font-semibold text-gray-700">Resume preview</h1>
+        <h1 className="text-xl font-semibold" style={{ color: "#14151A" }}>Resume preview</h1>
         <div className="flex items-center gap-4">
           <button className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100">
             <Info size={20} />
@@ -76,7 +76,7 @@ const FinalPreviewPage = () => {
       <div className="flex-1 flex overflow-hidden">
         {/* Resume Preview - Left & Center */}
         <div className="flex-1 overflow-auto p-6 flex items-start justify-center">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 max-w-4xl w-full">
+          <div className="resume-preview-container bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 max-w-4xl w-full">
             <TemplateRenderer templateId={selectedTemplate} resumeData={resume} />
           </div>
         </div>
@@ -85,7 +85,7 @@ const FinalPreviewPage = () => {
         <div className="w-80 bg-gray-100 border-l border-gray-200 overflow-y-auto p-6 flex flex-col gap-6">
           {/* Edit option */}
           <div>
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Edit option</h3>
+            <h3 className="font-semibold text-sm mb-3" style={{ color: "#14151A" }}>Edit option</h3>
             <ActionCard
               icon={FileEdit}
               iconColor="bg-orange-500"
@@ -97,7 +97,7 @@ const FinalPreviewPage = () => {
           </div>
 
           <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Download options</h3>
+            <h3 className="font-semibold text-sm mb-3" style={{ color: "#14151A" }}>Download options</h3>
             <div className="space-y-3">
               <ActionCard
                 icon={FileDown}
@@ -127,7 +127,7 @@ const FinalPreviewPage = () => {
           </div>
 
           <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-gray-800 font-semibold text-sm mb-3">Share & Export</h3>
+            <h3 className="font-semibold text-sm mb-3" style={{ color: "#14151A" }}>Share & Export</h3>
             <div className="space-y-3">
               <ActionCard
                 icon={Mail}

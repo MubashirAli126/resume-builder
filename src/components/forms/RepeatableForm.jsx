@@ -2,9 +2,6 @@ import { useState } from "react";
 import AddMoreButton from "../ui/AddMoreButton";
 import DeleteButton from "../ui/DeleteButton";
 
-/**
- * Generic repeatable section. Add More always visible. Delete only when entry has data (red).
- */
 const emptyEntryFromFields = (fields) =>
   fields.reduce((acc, f) => ({ ...acc, [f.name]: "" }), {});
 
@@ -49,14 +46,14 @@ const RepeatableForm = ({
 
   return (
     <div className="space-y-6 font-app">
-      <h3 className="text-lg font-semibold text-gray-800">{sectionName}</h3>
+      <h3 className="text-base font-semibold" style={{ color: "#14151A" }}>{sectionName}</h3>
 
       {entries.map((entry, idx) => (
         <div key={idx} className="space-y-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border border-gray-200 rounded-lg p-4 bg-white">
             {fields.map((field) => (
               <div key={field.name}>
-                <label className="block text-sm font-medium text-gray-800 mb-1">
+                <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                   {field.label}
                 </label>
                 <input

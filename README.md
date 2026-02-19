@@ -69,7 +69,7 @@ The app will be available at `http://localhost:5173` (or the port shown in the t
 ```
 src/
 ├── components/
-│   ├── layout/          # MainLayout, Sidebar, FormPanel, PreviewPanel, CategorySelector
+│   ├── layout/          # MainLayout, Sidebar, FormPanel, PreviewPanel, 
 │   └── forms/           # PersonalForm, EducationForm, WorkForm, etc.
 ├── pages/               # FinalPreviewPage
 ├── templates/           # Resume templates (OrangeBlack, Blue, Teal)

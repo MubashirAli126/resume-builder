@@ -6,10 +6,6 @@ import AddMoreButton from "../ui/AddMoreButton";
 import DeleteButton from "../ui/DeleteButton";
 import { Calendar } from "lucide-react";
 
-/**
- * Image 6 – Work Experience. Job title, Designation, Company name, From, To, Onwards checkbox.
- * Add more link. Delete below each entry (Image 9).
- */
 const emptyEntry = () => ({
   jobTitle: "",
   designation: "",
@@ -94,7 +90,7 @@ const WorkForm = () => {
         <div key={idx} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Job title <span className="text-red-500">*</span>
               </label>
               <input
@@ -107,7 +103,7 @@ const WorkForm = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Designation <span className="text-red-500">*</span>
               </label>
               <input
@@ -120,7 +116,7 @@ const WorkForm = () => {
               />
             </div>
             <div className="col-span-2">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Company name <span className="text-red-500">*</span>
               </label>
               <input
@@ -133,7 +129,7 @@ const WorkForm = () => {
               />
             </div>
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 From <span className="text-red-500">*</span>
               </label>
               <input
@@ -149,7 +145,7 @@ const WorkForm = () => {
               />
             </div>
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 To <span className="text-red-500">*</span>
               </label>
               <input
@@ -164,7 +160,7 @@ const WorkForm = () => {
                 size={18}
                 className="absolute right-3 top-9 text-gray-400 pointer-events-none"
               />
-              <label className="flex items-center gap-2 mt-2">
+              <label className="flex items-center gap-2 mt-2" style={{ color: "#14151A" }}>
                 <input
                   type="checkbox"
                   checked={entry.onwards}
@@ -173,7 +169,7 @@ const WorkForm = () => {
                   }
                   className="rounded border-gray-300 text-[#00318B] focus:ring-[#00318B]"
                 />
-                <span className="text-sm font-medium text-gray-800">
+                <span className="text-sm font-medium" style={{ color: "#14151A" }}>
                   Onwards
                 </span>
               </label>

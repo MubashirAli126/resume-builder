@@ -43,11 +43,16 @@ const FormPanel = () => {
 
   return (
     <div className="w-full max-w-3xl font-app">
-      <div className="mb-6">
-        <h2 className="text-gray-800 font-semibold text-lg">
+      <div
+        className="pb-4 mb-6"
+        style={{ borderBottom: "1px solid #DEE0E3" }}
+      >
+        <h2 className="font-semibold text-base" style={{ color: "#14151A" }}>
           {STEP_LABELS[activeStep] || "Personal info"}
         </h2>
-        <p className="text-gray-500 text-sm mt-0.5">Fill details here.</p>
+        <p className="text-sm mt-0.5" style={{ color: "#0F132499" }}>
+          Fill details here.
+        </p>
       </div>
       {renderForm()}
     </div>

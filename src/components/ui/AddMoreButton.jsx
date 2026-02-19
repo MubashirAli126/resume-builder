@@ -1,9 +1,5 @@
 import { Plus } from "lucide-react";
 
-/**
- * Add More button – Image 7. Use wherever "Add" option appears.
- * Blue plus icon + "Add more" text in #00318B, text-link style (underlined).
- */
 const BRAND_COLOR = "#00318B";
 
 const AddMoreButton = ({ onClick, label = "Add more", className = "" }) => (

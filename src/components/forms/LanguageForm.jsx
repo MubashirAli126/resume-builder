@@ -1,35 +1,11 @@
 import { useResumeStore } from "../../store/resumeStore";
 import { STEPS } from "../../constants/steps";
+import { LANGUAGE_OPTIONS, PROFICIENCY_OPTIONS } from "../../constants/languageOptions";
 import { useState } from "react";
 import NextButton from "../ui/NextButton";
 import AddMoreButton from "../ui/AddMoreButton";
 import DeleteButton from "../ui/DeleteButton";
 import { ChevronDown } from "lucide-react";
-
-/**
- * Image 5 – Language section. Dropdowns: Languages spoken, Proficiency level.
- * Add more link. Delete below each entry (Image 9).
- */
-const LANGUAGE_OPTIONS = [
-  "English",
-  "Spanish",
-  "French",
-  "German",
-  "Mandarin",
-  "Hindi",
-  "Arabic",
-  "Portuguese",
-  "Other"
-];
-
-const PROFICIENCY_OPTIONS = [
-  "Beginner",
-  "Elementary",
-  "Intermediate",
-  "Upper Intermediate",
-  "Advanced",
-  "Native"
-];
 
 const emptyEntry = () => ({ language: "", proficiency: "" });
 
@@ -87,7 +63,7 @@ const LanguageForm = () => {
         <div key={idx} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Languages spoken <span className="text-red-500">*</span>
               </label>
               <select
@@ -110,7 +86,7 @@ const LanguageForm = () => {
               />
             </div>
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Proficiency level <span className="text-red-500">*</span>
               </label>
               <select

@@ -1,9 +1,5 @@
 import { Trash2 } from "lucide-react";
 
-/**
- * Delete option under tables – Image 9.
- * Only show when entry has data; display in red when visible.
- */
 const DeleteButton = ({ onClick, label = "Delete", className = "" }) => (
   <button
     type="button"

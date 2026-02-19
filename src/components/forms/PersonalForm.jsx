@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { User } from "lucide-react";
 import NextButton from "../ui/NextButton";
 
-const MAX_FILE_SIZE = 800 * 1024; // 800KB
+const MAX_FILE_SIZE = 800 * 1024;
 const ACCEPTED_TYPES = ["image/jpeg", "image/jpg", "image/gif", "image/png"];
 
 const PersonalForm = () => {
@@ -112,7 +112,7 @@ const PersonalForm = () => {
               Reset
             </button>
           </div>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className="text-xs mt-2" style={{ color: "#0F132499" }}>
             Allowed JPG, GIF or PNG. Max size of 800K
           </p>
         </div>
@@ -121,7 +121,7 @@ const PersonalForm = () => {
       {/* Form fields - 2 column grid */}
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Full name <span className="text-red-500">*</span>
           </label>
           <input
@@ -134,7 +134,7 @@ const PersonalForm = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Title <span className="text-red-500">*</span>
           </label>
           <input
@@ -147,7 +147,7 @@ const PersonalForm = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Email address <span className="text-red-500">*</span>
           </label>
           <input
@@ -161,7 +161,7 @@ const PersonalForm = () => {
           )}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Phone number <span className="text-red-500">*</span>
           </label>
           <input
@@ -177,7 +177,7 @@ const PersonalForm = () => {
 
       {/* Address - full width */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
           Address <span className="text-red-500">*</span>
         </label>
         <input
@@ -193,7 +193,7 @@ const PersonalForm = () => {
       {/* Optional URLs - 2 column */}
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             LinkedIn URL (optional)
           </label>
           <input
@@ -203,7 +203,7 @@ const PersonalForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Indeed URL (optional)
           </label>
           <input
@@ -213,7 +213,7 @@ const PersonalForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Behance URL (optional)
           </label>
           <input
@@ -223,7 +223,7 @@ const PersonalForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
             Website URL (optional)
           </label>
           <input

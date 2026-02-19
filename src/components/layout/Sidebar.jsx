@@ -1,23 +1,5 @@
 import { useResumeStore } from "../../store/resumeStore";
-import {
-  Info,
-  FileText,
-  GraduationCap,
-  Languages,
-  Briefcase,
-  UserCheck,
-  Users
-} from "lucide-react";
-
-const categories = [
-  { id: "personal", label: "Personal Info", icon: Info },
-  { id: "about", label: "About me", icon: FileText },
-  { id: "education", label: "Education", icon: GraduationCap },
-  { id: "language", label: "Language", icon: Languages },
-  { id: "work", label: "Work experience", icon: Briefcase },
-  { id: "expertise", label: "Areas of expertise", icon: UserCheck },
-  { id: "references", label: "References", icon: Users }
-];
+import { CATEGORIES } from "../../constants/categories";
 
 const BRAND_COLOR = "#00318B";
 const ACTIVE_BG = "#F5F8FC";
@@ -29,17 +11,20 @@ const Sidebar = () => {
 
   return (
     <div className="p-6 font-app">
-      <div className="mb-6">
-        <h2 className="text-gray-800 font-semibold text-lg">
+      <div
+        className="pb-4 mb-6"
+        style={{ borderBottom: "1px solid #DEE0E3" }}
+      >
+        <h2 className="font-semibold text-base" style={{ color: "#14151A" }}>
           Select to fill details
         </h2>
-        <p className="text-gray-500 text-sm mt-0.5">
+        <p className="text-sm mt-0.5" style={{ color: "#0F132499" }}>
           Select and fill details Individually.
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {categories.map((category) => {
+        {CATEGORIES.map((category) => {
           const Icon = category.icon;
           const isActive = activeStep === category.id;
 

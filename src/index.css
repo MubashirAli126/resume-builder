@@ -35,3 +35,13 @@ body {
 .fade-enter-active {
   @apply opacity-100 translate-y-0 transition-all duration-300;
 }
+
+/* Resume preview container: fixed max height, scroll when content overflows */
+.resume-preview-container {
+  max-height: 600px;
+  overflow: auto;
+  width: 100%;
+}
+.resume-preview-container > * {
+  min-height: 0;
+}

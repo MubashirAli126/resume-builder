@@ -8,7 +8,7 @@ const MainLayout = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shrink-0">
-        <h1 className="text-xl font-bold text-gray-900">Resume builder</h1>
+        <h1 className="text-xl font-bold" style={{ color: "#14151A" }}>Resume builder</h1>
         <div className="flex items-center gap-4">
           <button className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100">
             <Info size={20} />
@@ -31,17 +31,17 @@ const MainLayout = () => {
       {/* Main content */}
       <div className="grid grid-cols-12 flex-1 overflow-hidden gap-4 p-4">
         {/* Left Sidebar */}
-        <div className="col-span-2 bg-white border border-gray-300 rounded-lg overflow-y-auto">
+        <div className="col-span-3 bg-white border border-gray-300 rounded-lg overflow-y-auto">
           <Sidebar />
         </div>
 
         {/* Center - Form Section */}
-        <div className="col-span-6 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
+        <div className="col-span-4 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
           <FormPanel />
         </div>
 
         {/* Right - Preview */}
-        <div className="col-span-4 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
+        <div className="col-span-5 bg-white border border-gray-300 rounded-lg p-6 overflow-y-auto">
           <PreviewPanel />
         </div>
       </div>

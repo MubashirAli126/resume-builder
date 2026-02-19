@@ -6,10 +6,6 @@ import AddMoreButton from "../ui/AddMoreButton";
 import DeleteButton from "../ui/DeleteButton";
 import { ChevronDown } from "lucide-react";
 
-/**
- * Image 4 – Education section. Fields: Level of education, Field of study,
- * University/Collage/School, Passing Year (dropdown). Add more link. Delete below each entry (Image 9).
- */
 const LEVEL_OPTIONS = [
   "High School",
   "Associate",
@@ -100,7 +96,7 @@ const EducationForm = () => {
         <div key={idx} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Level of education <span className="text-red-500">*</span>
               </label>
               <select
@@ -119,7 +115,7 @@ const EducationForm = () => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Field of study <span className="text-red-500">*</span>
               </label>
               <input
@@ -132,7 +128,7 @@ const EducationForm = () => {
               />
             </div>
             <div className="col-span-2">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 University / Collage / School{" "}
                 <span className="text-red-500">*</span>
               </label>
@@ -146,7 +142,7 @@ const EducationForm = () => {
               />
             </div>
             <div className="relative">
-              <label className="block text-sm font-medium text-gray-800 mb-1">
+              <label className="block text-sm font-medium mb-1" style={{ color: "#14151A" }}>
                 Passing Year <span className="text-red-500">*</span>
               </label>
               <select
